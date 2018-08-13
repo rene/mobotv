@@ -31,7 +31,7 @@ void bt_close_callback(GtkWidget *widget, gpointer data);
 
 GtkWidget *new_about_win(void)
 {
-	HildonWindow *awin     = HILDON_WINDOW(hildon_window_new());
+	GtkWidget *awin        = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	GtkWidget *icon        = gtk_image_new_from_file(MOBOTV_ICON);
 	GtkWidget *lbl_title   = gtk_label_new(NULL);
 	GtkWidget *lbl_url     = gtk_link_button_new_with_label("http://code.google.com/p/mobotv", "http://code.google.com/p/mobotv");
@@ -87,8 +87,8 @@ GtkWidget *new_about_win(void)
  */
 void bt_close_callback(GtkWidget *widget, gpointer data)
 {
-	HildonWindow *awin = HILDON_WINDOW(data);
-	gtk_widget_destroy(GTK_WIDGET(awin));
+	GtkWidget *awin = (GtkWidget*)data;
+	gtk_widget_destroy(awin);
 }
 
 

@@ -29,7 +29,6 @@
 
 
 	#include <gtk/gtk.h>
-	#include <hildon/hildon-program.h>
 	#include "ui.h"
 
 	#ifdef HAVE_CONFIG_H

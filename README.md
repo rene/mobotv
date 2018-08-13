@@ -1,7 +1,11 @@
 # MoboTV
 
-TODO: Write README!
+* MoboTV was a program written for the former Moblin platform
+* Original source code it's in the commit bef87d7f47b823a4eb8953ef28db6b81ed39ce97
 
+# Notes
+
+* Although the source code was updated to remove Hildon dependency, it's outdated and should not be considered on newer systems
 
 # Credits
 

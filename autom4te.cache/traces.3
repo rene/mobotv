@@ -1050,19 +1050,7 @@ m4trace:configure.ac:23: -1- PKG_CHECK_EXISTS([gtk+-2.0 >= 2.2 glib-2.0 >= 2.2],
 m4trace:configure.ac:23: -1- _PKG_SHORT_ERRORS_SUPPORTED
 m4trace:configure.ac:24: -1- m4_pattern_allow([^GTK_CFLAGS$])
 m4trace:configure.ac:25: -1- m4_pattern_allow([^GTK_LIBS$])
-m4trace:configure.ac:27: -1- PKG_CHECK_MODULES([HILDON], [hildon-1 >= 1.0])
-m4trace:configure.ac:27: -1- m4_pattern_allow([^HILDON_CFLAGS$])
-m4trace:configure.ac:27: -1- m4_pattern_allow([^HILDON_LIBS$])
-m4trace:configure.ac:27: -1- PKG_CHECK_EXISTS([hildon-1 >= 1.0], [pkg_cv_[]HILDON_CFLAGS=`$PKG_CONFIG --[]cflags "hildon-1 >= 1.0" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:27: -1- PKG_CHECK_EXISTS([hildon-1 >= 1.0], [pkg_cv_[]HILDON_LIBS=`$PKG_CONFIG --[]libs "hildon-1 >= 1.0" 2>/dev/null`
-		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:27: -1- _PKG_SHORT_ERRORS_SUPPORTED
-m4trace:configure.ac:28: -1- m4_pattern_allow([^HILDON_CFLAGS$])
-m4trace:configure.ac:29: -1- m4_pattern_allow([^HILDON_LIBS$])
-m4trace:configure.ac:31: -1- m4_pattern_allow([^HAVE_LIBCONFFILE$])
-m4trace:configure.ac:32: -1- m4_pattern_allow([^CONFFILE$])
-m4trace:configure.ac:45: -1- AC_DEFUN([XML2TEST], [
+m4trace:configure.ac:38: -1- AC_DEFUN([XML2TEST], [
 	AC_REQUIRE([AC_PROG_SED])
 	AC_MSG_CHECKING([libxml2 version])
 	if xml2version=`$XML2CONFIG --version`; then
@@ -1073,42 +1061,41 @@ m4trace:configure.ac:45: -1- AC_DEFUN([XML2TEST], [
 		AC_MSG_ERROR([libxml2 is required. Try --with-xml2-config.])
 	fi
 ])
-m4trace:configure.ac:59: -1- XML2TEST
-m4trace:configure.ac:59: -1- m4_pattern_allow([^SED$])
-m4trace:configure.ac:69: -1- m4_pattern_allow([^LIBXML2_CFLAGS$])
-m4trace:configure.ac:70: -1- m4_pattern_allow([^LIBXML2_LIBS$])
-m4trace:configure.ac:77: -1- PKG_CHECK_MODULES([GST], [gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
+m4trace:configure.ac:52: -1- XML2TEST
+m4trace:configure.ac:52: -1- m4_pattern_allow([^SED$])
+m4trace:configure.ac:62: -1- m4_pattern_allow([^LIBXML2_CFLAGS$])
+m4trace:configure.ac:63: -1- m4_pattern_allow([^LIBXML2_LIBS$])
+m4trace:configure.ac:70: -1- PKG_CHECK_MODULES([GST], [gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
 					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ], [], [as_fn_error $? "gstreamer-$GST_MAJORMINOR not found. See http://gstreamer.freedesktop.org/" "$LINENO" 5])
-m4trace:configure.ac:77: -1- m4_pattern_allow([^GST_CFLAGS$])
-m4trace:configure.ac:77: -1- m4_pattern_allow([^GST_LIBS$])
-m4trace:configure.ac:77: -1- PKG_CHECK_EXISTS([gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
+m4trace:configure.ac:70: -1- m4_pattern_allow([^GST_CFLAGS$])
+m4trace:configure.ac:70: -1- m4_pattern_allow([^GST_LIBS$])
+m4trace:configure.ac:70: -1- PKG_CHECK_EXISTS([gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
 					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ], [pkg_cv_[]GST_CFLAGS=`$PKG_CONFIG --[]cflags "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
 					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:77: -1- PKG_CHECK_EXISTS([gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
+m4trace:configure.ac:70: -1- PKG_CHECK_EXISTS([gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
 					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ], [pkg_cv_[]GST_LIBS=`$PKG_CONFIG --[]libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
 					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:77: -1- _PKG_SHORT_ERRORS_SUPPORTED
-m4trace:configure.ac:80: -1- m4_pattern_allow([^GST_CFLAGS$])
-m4trace:configure.ac:81: -1- m4_pattern_allow([^GST_LIBS$])
-m4trace:configure.ac:85: -1- m4_pattern_allow([^CPP$])
-m4trace:configure.ac:85: -1- m4_pattern_allow([^CPPFLAGS$])
-m4trace:configure.ac:85: -1- m4_pattern_allow([^CPP$])
-m4trace:configure.ac:85: -1- m4_pattern_allow([^GREP$])
-m4trace:configure.ac:85: -1- m4_pattern_allow([^EGREP$])
-m4trace:configure.ac:85: -1- m4_pattern_allow([^STDC_HEADERS$])
-m4trace:configure.ac:85: -1- m4_pattern_allow([^HAVE_DIRENT_H$])
-m4trace:configure.ac:86: -1- m4_pattern_allow([^HAVE_CONFFILE_CONFFILE_H$])
-m4trace:configure.ac:95: -1- m4_pattern_allow([^LIB@&t@OBJS$])
-m4trace:configure.ac:95: -1- m4_pattern_allow([^LTLIBOBJS$])
-m4trace:configure.ac:95: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
-m4trace:configure.ac:95: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
-m4trace:configure.ac:95: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
-m4trace:configure.ac:95: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
-m4trace:configure.ac:95: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
-m4trace:configure.ac:95: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
-m4trace:configure.ac:95: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
-m4trace:configure.ac:95: -1- AM_RUN_LOG([cd "$am_dirpart" \
+m4trace:configure.ac:70: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:73: -1- m4_pattern_allow([^GST_CFLAGS$])
+m4trace:configure.ac:74: -1- m4_pattern_allow([^GST_LIBS$])
+m4trace:configure.ac:78: -1- m4_pattern_allow([^CPP$])
+m4trace:configure.ac:78: -1- m4_pattern_allow([^CPPFLAGS$])
+m4trace:configure.ac:78: -1- m4_pattern_allow([^CPP$])
+m4trace:configure.ac:78: -1- m4_pattern_allow([^GREP$])
+m4trace:configure.ac:78: -1- m4_pattern_allow([^EGREP$])
+m4trace:configure.ac:78: -1- m4_pattern_allow([^STDC_HEADERS$])
+m4trace:configure.ac:78: -1- m4_pattern_allow([^HAVE_DIRENT_H$])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^LIB@&t@OBJS$])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^LTLIBOBJS$])
+m4trace:configure.ac:87: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
+m4trace:configure.ac:87: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
+m4trace:configure.ac:87: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
+m4trace:configure.ac:87: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
+m4trace:configure.ac:87: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
+m4trace:configure.ac:87: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
+m4trace:configure.ac:87: -1- AM_RUN_LOG([cd "$am_dirpart" \
       && sed -e '/# am--include-marker/d' "$am_filepart" \
         | $MAKE -f - am--depfiles])

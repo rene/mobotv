@@ -28,7 +28,7 @@
 
 typedef struct _chmg_widgets {
 	application  *app;
-	HildonWindow *chwin;
+	GtkWidget *chwin;
 	ch_list   *chlist;
 	channel   *ch_active;
 	GtkWidget *cbox_ch;
@@ -69,7 +69,7 @@ GtkWidget *new_chmg_win(application *app)
 	ch_list *chlist;
 	channel *ch;
 
-	HildonWindow *chwin = HILDON_WINDOW(hildon_window_new());
+	GtkWidget *chwin    = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	GtkWidget *lbl_ch   = gtk_label_new("Channel:");
 	GtkWidget *cbox_ch  = gtk_combo_box_new_text();
 	GtkWidget *bt_del   = gtk_button_new_with_label(" Remove ");
@@ -186,8 +186,8 @@ GtkWidget *new_chmg_win(application *app)
 
 
 	// load channel list
-	HildonBanner *banner = HILDON_BANNER(hildon_banner_show_progress(NULL, NULL, "Loading channels list..."));
-	hildon_banner_set_fraction(banner, 0);
+	//HildonBanner *banner = HILDON_BANNER(hildon_banner_show_progress(NULL, NULL, "Loading channels list..."));
+	//hildon_banner_set_fraction(banner, 0);
 
 	// Add to combo box
 	lsize = chlist_get_length(chlist);
@@ -195,13 +195,13 @@ GtkWidget *new_chmg_win(application *app)
 		if( (ch = chlist_get_channel_at(chlist, p)) != NULL )
 			gtk_combo_box_append_text(GTK_COMBO_BOX(cbox_ch), channel_get_name(ch) );
 
-		hildon_banner_set_fraction(banner, (gdouble)(p / lsize));
+		//hildon_banner_set_fraction(banner, (gdouble)(p / lsize));
 	}
 
 	// loading done
 	gtk_combo_box_set_active(GTK_COMBO_BOX(cbox_ch), 0);
-	hildon_banner_set_fraction(banner, 1.0);
-	gtk_widget_destroy((GtkWidget*)banner);
+	//hildon_banner_set_fraction(banner, 1.0);
+	//gtk_widget_destroy((GtkWidget*)banner);
 
 	// window
 	gtk_container_add(GTK_CONTAINER(chwin), vbox1);
@@ -320,7 +320,7 @@ static void bt_close_callback(GtkWidget *widget, gpointer data)
 		g_warning("bt_close_callback: ooops, this is not a nice place to stay :(");
 		return;
 	} else {
-		HildonWindow *chwin = HILDON_WINDOW(chmg_wg->chwin);
+		GtkWidget *chwin = chmg_wg->chwin;
 		gtk_widget_destroy(GTK_WIDGET(chwin));
 
 		if(chmg_wg->icon_path != NULL) g_free(chmg_wg->icon_path);

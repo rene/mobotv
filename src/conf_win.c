@@ -27,7 +27,7 @@
 
 
 typedef struct _cwin_widgets {
-	HildonWindow *cwin;
+	GtkWidget *cwin;
 	application *app;
 	GtkWidget *ck_chl;
 	GtkWidget *rb_list;
@@ -53,7 +53,7 @@ GtkWidget *new_conf_win(application *app)
 	cwin_widgets *cwidgets;
 	user_conf *prog_conf;
 
-	HildonWindow *cwin  = HILDON_WINDOW(hildon_window_new());
+	GtkWidget *cwin     = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	GtkWidget *tabpanel = gtk_notebook_new();
 	GtkWidget *ck_chl   = gtk_check_button_new_with_label("Show channel List");
 	GtkWidget *lbl_view = gtk_label_new("View mode:");
@@ -226,8 +226,8 @@ static void bt_ok_callback(GtkWidget *widget, gpointer data)
 
 static void bt_cancel_callback(GtkWidget *widget, gpointer data)
 {
-	HildonWindow *cwin = HILDON_WINDOW(data);
-	gtk_widget_destroy(GTK_WIDGET(cwin));
+	GtkWidget *cwin = (GtkWidget*)data;
+	gtk_widget_destroy(cwin);
 }
 
 static void ck_chl_callback(GtkWidget *widget, gpointer data)

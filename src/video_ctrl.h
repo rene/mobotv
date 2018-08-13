@@ -29,7 +29,6 @@
 
 
 	#include <gtk/gtk.h>
-	#include <hildon/hildon-program.h>
 	#include "video_player.h"
 	#include "ch_list.h"
 	#include "channel.h"

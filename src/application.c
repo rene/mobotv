@@ -65,7 +65,7 @@ void app_destroy(application *obj)
 /**
  * Sets and Gets
  */
-void app_set_main_win(application *obj, HildonWindow *main_win)
+void app_set_main_win(application *obj, GtkWidget *main_win)
 {
 	if(obj == NULL) return;
 
@@ -73,7 +73,7 @@ void app_set_main_win(application *obj, HildonWindow *main_win)
 }
 
 
-HildonWindow *app_get_main_win(application *obj)
+GtkWidget *app_get_main_win(application *obj)
 {
 	if(obj == NULL) return(NULL);
 

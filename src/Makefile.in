@@ -109,11 +109,12 @@ am_mobotv_OBJECTS = mobotv-main.$(OBJEXT) mobotv-application.$(OBJEXT) \
 	mobotv-video_ctrl.$(OBJEXT) mobotv-video_player.$(OBJEXT) \
 	mobotv-user_conf.$(OBJEXT) mobotv-channel.$(OBJEXT) \
 	mobotv-ch_info.$(OBJEXT) mobotv-ch_list.$(OBJEXT) \
-	mobotv-ch_view.$(OBJEXT) mobotv-input_dialog.$(OBJEXT)
+	mobotv-ch_view.$(OBJEXT) mobotv-input_dialog.$(OBJEXT) \
+	mobotv-conffile.$(OBJEXT)
 mobotv_OBJECTS = $(am_mobotv_OBJECTS)
 am__DEPENDENCIES_1 =
 mobotv_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -134,6 +135,7 @@ am__depfiles_remade = ./$(DEPDIR)/mobotv-about_win.Po \
 	./$(DEPDIR)/mobotv-ch_info.Po ./$(DEPDIR)/mobotv-ch_list.Po \
 	./$(DEPDIR)/mobotv-ch_view.Po ./$(DEPDIR)/mobotv-channel.Po \
 	./$(DEPDIR)/mobotv-chmg_win.Po ./$(DEPDIR)/mobotv-conf_win.Po \
+	./$(DEPDIR)/mobotv-conffile.Po \
 	./$(DEPDIR)/mobotv-input_dialog.Po ./$(DEPDIR)/mobotv-main.Po \
 	./$(DEPDIR)/mobotv-ui.Po ./$(DEPDIR)/mobotv-user_conf.Po \
 	./$(DEPDIR)/mobotv-video_ctrl.Po \
@@ -193,7 +195,6 @@ AWK = @AWK@
 CC = @CC@
 CCDEPMODE = @CCDEPMODE@
 CFLAGS = @CFLAGS@
-CONFFILE = @CONFFILE@
 CPP = @CPP@
 CPPFLAGS = @CPPFLAGS@
 CYGPATH_W = @CYGPATH_W@
@@ -210,8 +211,6 @@ GST_LIBS = @GST_LIBS@
 GTK_CFLAGS = @GTK_CFLAGS@
 GTK_LIBS = @GTK_LIBS@
 HAVE_PKGCONFIG = @HAVE_PKGCONFIG@
-HILDON_CFLAGS = @HILDON_CFLAGS@
-HILDON_LIBS = @HILDON_LIBS@
 INSTALL = @INSTALL@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
@@ -297,12 +296,11 @@ mobotv_SOURCES = main.c		 					\
 				  ch_info.c ch_info.h				\
 				  ch_list.c ch_list.h				\
 				  ch_view.c ch_view.h				\
-				  input_dialog.c input_dialog.h
+				  input_dialog.c input_dialog.h     \
+				  conffile.c conffile.h
 
-mobotv_LDADD = $(GTK_LIBS) $(HILDON_LIBS) $(CONFFILE_LIBS) \
-				  $(LIBXML2_LIBS) $(GST_LIBS)
-
-mobotv_CPPFLAGS = -Wall $(GTK_CFLAGS) $(HILDON_CFLAGS) $(LIBXML2_CFLAGS) $(GST_CFLAGS) \
+mobotv_LDADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GST_LIBS)
+mobotv_CPPFLAGS = -Wall $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(GST_CFLAGS) \
 				  -DPIXMAPS_DIR=\""$(datadir)/pixmaps"\"
 
 all: all-am
@@ -399,6 +397,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mobotv-channel.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mobotv-chmg_win.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mobotv-conf_win.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mobotv-conffile.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mobotv-input_dialog.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mobotv-main.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/mobotv-ui.Po@am__quote@ # am--include-marker
@@ -622,6 +621,20 @@ mobotv-input_dialog.obj: input_dialog.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mobotv_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mobotv-input_dialog.obj `if test -f 'input_dialog.c'; then $(CYGPATH_W) 'input_dialog.c'; else $(CYGPATH_W) '$(srcdir)/input_dialog.c'; fi`
 
+mobotv-conffile.o: conffile.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mobotv_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mobotv-conffile.o -MD -MP -MF $(DEPDIR)/mobotv-conffile.Tpo -c -o mobotv-conffile.o `test -f 'conffile.c' || echo '$(srcdir)/'`conffile.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mobotv-conffile.Tpo $(DEPDIR)/mobotv-conffile.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='conffile.c' object='mobotv-conffile.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mobotv_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mobotv-conffile.o `test -f 'conffile.c' || echo '$(srcdir)/'`conffile.c
+
+mobotv-conffile.obj: conffile.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mobotv_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT mobotv-conffile.obj -MD -MP -MF $(DEPDIR)/mobotv-conffile.Tpo -c -o mobotv-conffile.obj `if test -f 'conffile.c'; then $(CYGPATH_W) 'conffile.c'; else $(CYGPATH_W) '$(srcdir)/conffile.c'; fi`
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/mobotv-conffile.Tpo $(DEPDIR)/mobotv-conffile.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='conffile.c' object='mobotv-conffile.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(mobotv_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o mobotv-conffile.obj `if test -f 'conffile.c'; then $(CYGPATH_W) 'conffile.c'; else $(CYGPATH_W) '$(srcdir)/conffile.c'; fi`
+
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
 tags: tags-am
@@ -757,6 +770,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/mobotv-channel.Po
 	-rm -f ./$(DEPDIR)/mobotv-chmg_win.Po
 	-rm -f ./$(DEPDIR)/mobotv-conf_win.Po
+	-rm -f ./$(DEPDIR)/mobotv-conffile.Po
 	-rm -f ./$(DEPDIR)/mobotv-input_dialog.Po
 	-rm -f ./$(DEPDIR)/mobotv-main.Po
 	-rm -f ./$(DEPDIR)/mobotv-ui.Po
@@ -816,6 +830,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/mobotv-channel.Po
 	-rm -f ./$(DEPDIR)/mobotv-chmg_win.Po
 	-rm -f ./$(DEPDIR)/mobotv-conf_win.Po
+	-rm -f ./$(DEPDIR)/mobotv-conffile.Po
 	-rm -f ./$(DEPDIR)/mobotv-input_dialog.Po
 	-rm -f ./$(DEPDIR)/mobotv-main.Po
 	-rm -f ./$(DEPDIR)/mobotv-ui.Po

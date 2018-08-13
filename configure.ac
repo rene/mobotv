@@ -24,13 +24,6 @@ PKG_CHECK_MODULES([GTK], [gtk+-2.0 >= 2.2 glib-2.0 >= 2.2])
 AC_SUBST(GTK_CFLAGS)
 AC_SUBST(GTK_LIBS)
 
-PKG_CHECK_MODULES([HILDON], [hildon-1 >= 1.0])
-AC_SUBST(HILDON_CFLAGS)
-AC_SUBST(HILDON_LIBS)
-
-AC_CHECK_LIB([conffile], new_conffile,, AC_MSG_ERROR(libconffile not found. See http://libconffile.sourceforge.net))
-AC_SUBST([CONFFILE])
-
 XML2CONFIG=xml2-config
 AC_ARG_WITH(xml2-config,
 [[  --with-xml2-config=FILE Use the given path to xml2-config when determining
@@ -59,7 +52,7 @@ dnl Call XML2TEST func
 XML2TEST
 
 dnl check libxml2 version
-if test -z "$xml2version" || test "$xml2version" -lt 206000; then
+if test -z "$xml2version" || test "$xml2version" -lt 20600; then
 	AC_MSG_ERROR([libxml2 2.6 or newer is required])
 fi
 
@@ -83,7 +76,6 @@ AC_SUBST(GST_LIBS)
 
 dnl Checks for header files.
 AC_CHECK_HEADERS(dirent.h,, AC_MSG_ERROR([dirent.h header not found.]))
-AC_CHECK_HEADERS(conffile/conffile.h,, AC_MSG_ERROR([conffile.h not found. Please install libconffile headers.]))
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 

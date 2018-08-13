@@ -23,7 +23,6 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-#include <hildon/hildon-program.h>
 #include <gtk/gtk.h>
 #include <gst/gst.h>
 #include "application.h"
@@ -63,7 +62,7 @@ static void mnu_mgt_ch_callback(GtkWidget *widget, gpointer data);
 static void mnu_prefs_callback(GtkWidget *widget, gpointer data);
 static void mnu_about_callback(GtkWidget *widget, gpointer data);
 static void smnu_local_callback(GtkWidget *widget, gpointer data);
-static void load_ch_list(char *filename, ch_list *chlist, ch_view *chview, HildonWindow *main_win);
+static void load_ch_list(char *filename, ch_list *chlist, ch_view *chview, GtkWidget *main_win);
 static gpointer load_ch_list_thread(gpointer data);
 
 
@@ -75,8 +74,7 @@ int main(int argc, char **argv)
 	GMainLoop *mloop;
 	main_lapp mlapp;
 
-	HildonProgram *mobotv;
-	HildonWindow  *main_win;
+	GtkWidget  *main_win;
 
 	GtkWidget *pane1;
 	GtkWidget *pane2;
@@ -92,9 +90,9 @@ int main(int argc, char **argv)
 
 	GtkWidget *mnu_open;
 	GtkWidget *mnu_load_list;
-		GtkWidget *smnu_load_list;
-		GtkWidget *smnu_url;
-		GtkWidget *smnu_local;
+	GtkWidget *smnu_load_list;
+	GtkWidget *smnu_url;
+	GtkWidget *smnu_local;
 	GtkWidget *mnu_mgt_ch;
 	GtkWidget *mnu_prefs;
 	GtkWidget *mnu_about;
@@ -106,8 +104,8 @@ int main(int argc, char **argv)
 	// instance gtk, main loop and hildon
 	gtk_init(&argc, &argv);
 	mloop    = g_main_loop_new(NULL, FALSE);
-    mobotv   = HILDON_PROGRAM(hildon_program_get_instance());
-    main_win = HILDON_WINDOW(hildon_window_new());
+    //mobotv   = g_application_new("", G_APPLICATION_FLAGS_NONE);
+    main_win = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 
 	// instance gstreamer
 	gst_init(&argc, &argv);
@@ -179,12 +177,12 @@ int main(int argc, char **argv)
 	mnu_about      = new_img_menu_item("About", MOBOTV_ICON_ABOUT);
 	mnu_quit       = new_img_menu_item("Quit", MOBOTV_ICON_QUIT);
 
-	gtk_widget_add_accelerator(mnu_open, "activate", accel_group,
+	/*gtk_widget_add_accelerator(mnu_open, "activate", accel_group,
 		      GDK_o, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 	gtk_widget_add_accelerator(mnu_prefs, "activate", accel_group,
 		      GDK_p, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 	gtk_widget_add_accelerator(mnu_quit, "activate", accel_group,
-		      GDK_q, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
+		      GDK_q, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);*/
 
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mnu_open);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), mnu_load_list);
@@ -230,11 +228,8 @@ int main(int argc, char **argv)
 	g_signal_connect_swapped(G_OBJECT(mnu_about), "activate", G_CALLBACK(mnu_about_callback), NULL);
 
 	// prepare and show main window
-	hildon_program_add_window(mobotv, main_win);
-	hildon_program_set_can_hibernate(mobotv, TRUE);
-	hildon_program_set_common_menu(mobotv, menu);
  	g_set_application_name("MoboTV");
-	gtk_widget_show_all((GtkWidget*)main_win);
+	gtk_widget_show_all(main_win);
 
 	// update interface
 	if(uconf_get_ch_show(prog_conf) == TRUE) {
@@ -386,7 +381,7 @@ static void mnu_about_callback(GtkWidget *widget, gpointer data)
 static void smnu_url_callback(GtkWidget *widget, gpointer data)
 {
 	application *app = (application*)data;
-	HildonWindow *main_win;
+	GtkWidget *main_win;
 	ch_list *chlist;
 	ch_view *chview;
 	char *txturl;
@@ -423,7 +418,7 @@ static void smnu_url_callback(GtkWidget *widget, gpointer data)
 static void smnu_local_callback(GtkWidget *widget, gpointer data)
 {
 	application *app = (application*)data;
-	HildonWindow *main_win;
+	GtkWidget *main_win;
 	ch_list *chlist;
 	ch_view *chview;
 	char *filename;
@@ -465,7 +460,7 @@ static void smnu_local_callback(GtkWidget *widget, gpointer data)
  * load_ch_list
  * Load channels list and show message on error
  */
-static void load_ch_list(char *filename, ch_list *chlist, ch_view *chview, HildonWindow *main_win)
+static void load_ch_list(char *filename, ch_list *chlist, ch_view *chview, GtkWidget *main_win)
 {
 	t_chlist tch;
 	GtkWidget *dialog;

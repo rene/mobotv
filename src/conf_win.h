@@ -29,7 +29,6 @@
 
 
 	#include <gtk/gtk.h>
-	#include <hildon/hildon-program.h>
 	#include "application.h"
 	#include "ui.h"
 	#include "video_ctrl.h"

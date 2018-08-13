@@ -29,7 +29,7 @@
 
 
 	#include <glib.h>
-	#include <conffile/conffile.h>
+	#include "conffile.h"
 	#include "ui.h"
 
 

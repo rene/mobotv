@@ -28,7 +28,6 @@
 	#define MOBOTV_APPLICATION_H
 
 	#include <gtk/gtk.h>
-	#include <hildon/hildon-program.h>
 	#include "video_ctrl.h"
 	#include "video_player.h"
 	#include "ch_info.h"
@@ -38,7 +37,7 @@
 
 
 	typedef struct _application {
-		HildonWindow *main_win;
+		GtkWidget    *main_win;
 		ch_info      *chinfo;
 		GtkWidget    *frm_inf;
 		ch_list      *chlist;
@@ -53,8 +52,8 @@
 	application *app_new(void);
 	void app_destroy(application *obj);
 
-	void app_set_main_win(application *obj, HildonWindow *main_win);
-	HildonWindow *app_get_main_win(application *obj);
+	void app_set_main_win(application *obj, GtkWidget *main_win);
+	GtkWidget *app_get_main_win(application *obj);
 
 	void app_set_chinfo(application *obj, ch_info *chinfo);
 	ch_info *app_get_chinfo(application *obj);

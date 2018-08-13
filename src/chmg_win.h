@@ -29,8 +29,6 @@
 
 
 	#include <gtk/gtk.h>
-	#include <hildon/hildon-program.h>
-	#include <hildon/hildon-banner.h>
 	#include "application.h"
 	#include "input_dialog.h"
 	#include "ui.h"
