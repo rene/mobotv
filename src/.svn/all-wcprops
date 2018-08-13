@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 26
+/svn/!svn/ver/73/trunk/src
+END
+video_ctrl.h
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/73/trunk/src/video_ctrl.h
+END
+chmg_win.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/51/trunk/src/chmg_win.h
+END
+Makefile.in
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/65/trunk/src/Makefile.in
+END
+conf_win.c
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/59/trunk/src/conf_win.c
+END
+application.c
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/59/trunk/src/application.c
+END
+ch_info.c
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/59/trunk/src/ch_info.c
+END
+conf_win.h
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/51/trunk/src/conf_win.h
+END
+application.h
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/53/trunk/src/application.h
+END
+channel.c
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/59/trunk/src/channel.c
+END
+ch_info.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/52/trunk/src/ch_info.h
+END
+ui.c
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/59/trunk/src/ui.c
+END
+channel.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/51/trunk/src/channel.h
+END
+input_dialog.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/51/trunk/src/input_dialog.c
+END
+video_player.c
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/72/trunk/src/video_player.c
+END
+ui.h
+K 25
+svn:wc:ra_dav:version-url
+V 31
+/svn/!svn/ver/65/trunk/src/ui.h
+END
+user_conf.c
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/72/trunk/src/user_conf.c
+END
+input_dialog.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/51/trunk/src/input_dialog.h
+END
+ch_view.c
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/73/trunk/src/ch_view.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 33
+/svn/!svn/ver/73/trunk/src/main.c
+END
+ch_list.c
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/73/trunk/src/ch_list.c
+END
+about_win.c
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/51/trunk/src/about_win.c
+END
+video_player.h
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/72/trunk/src/video_player.h
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/65/trunk/src/Makefile.am
+END
+user_conf.h
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/72/trunk/src/user_conf.h
+END
+ch_view.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/73/trunk/src/ch_view.h
+END
+ch_list.h
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/!svn/ver/73/trunk/src/ch_list.h
+END
+video_ctrl.c
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/73/trunk/src/video_ctrl.c
+END
+chmg_win.c
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/59/trunk/src/chmg_win.c
+END
+about_win.h
+K 25
+svn:wc:ra_dav:version-url
+V 38
+/svn/!svn/ver/51/trunk/src/about_win.h
+END
