@@ -184,24 +184,15 @@ GtkWidget *new_chmg_win(application *app)
 	g_signal_connect(G_OBJECT(txt_url),  "insert-text", G_CALLBACK(activate_bt_save_callback2), chmg_wg);
 	g_signal_connect(G_OBJECT(buff),     "changed",     G_CALLBACK(activate_bt_save_callback3), chmg_wg);
 
-
-	// load channel list
-	//HildonBanner *banner = HILDON_BANNER(hildon_banner_show_progress(NULL, NULL, "Loading channels list..."));
-	//hildon_banner_set_fraction(banner, 0);
-
 	// Add to combo box
 	lsize = chlist_get_length(chlist);
 	for(p = 0; p<lsize; p++) {
 		if( (ch = chlist_get_channel_at(chlist, p)) != NULL )
 			gtk_combo_box_append_text(GTK_COMBO_BOX(cbox_ch), channel_get_name(ch) );
-
-		//hildon_banner_set_fraction(banner, (gdouble)(p / lsize));
 	}
 
 	// loading done
 	gtk_combo_box_set_active(GTK_COMBO_BOX(cbox_ch), 0);
-	//hildon_banner_set_fraction(banner, 1.0);
-	//gtk_widget_destroy((GtkWidget*)banner);
 
 	// window
 	gtk_container_add(GTK_CONTAINER(chwin), vbox1);

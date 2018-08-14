@@ -34,7 +34,7 @@ GtkWidget *new_about_win(void)
 	GtkWidget *awin        = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	GtkWidget *icon        = gtk_image_new_from_file(MOBOTV_ICON);
 	GtkWidget *lbl_title   = gtk_label_new(NULL);
-	GtkWidget *lbl_url     = gtk_link_button_new_with_label("http://code.google.com/p/mobotv", "http://code.google.com/p/mobotv");
+	GtkWidget *lbl_url     = gtk_link_button_new_with_label("http://github.com/rene/mobotv", "http://github.com/rene/mobotv");
 	GtkWidget *lbl_author  = gtk_label_new("Developed by Renê de Souza Pinto");
 	GtkWidget *lbl_email   = gtk_link_button_new_with_label("mailto:" PACKAGE_BUGREPORT, PACKAGE_BUGREPORT);
 	GtkWidget *lbl_license = gtk_label_new("This program is free software, licensed under the terms of");

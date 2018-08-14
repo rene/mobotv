@@ -493,7 +493,7 @@ static void load_ch_list(char *filename, ch_list *chlist, ch_view *chview, GtkWi
 	tch.res      = FALSE;
 	tch.done     = FALSE;
 
-	g_thread_create(load_ch_list_thread, &tch, FALSE, NULL);
+	g_thread_new(NULL, load_ch_list_thread, &tch);
 
 	// Wait for thread finish
 	gtk_widget_show_all(dialog);
@@ -520,13 +520,11 @@ static gpointer load_ch_list_thread(gpointer data)
 {
 	t_chlist *tch = (t_chlist*)data;
 	ch_list *chlist;
-	GtkWidget *dialog;
 	char *filename;
 
 	if(tch == NULL) {
 		return(NULL);
 	} else {
-		dialog   = tch->dialog;
 		chlist   =  tch->chlist;
 		filename = tch->filename;
 	}

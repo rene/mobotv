@@ -66,7 +66,6 @@ GtkWidget *new_conf_win(application *app)
 	GtkWidget *vbox1    = gtk_vbox_new(FALSE, 2);
 	GtkWidget *vbox2    = gtk_vbox_new(FALSE, 2);
 	GtkWidget *vbox3    = gtk_vbox_new(TRUE, 2);
-	GtkWidget *vbox4    = gtk_vbox_new(FALSE, 2);
 	GtkWidget *frame_cl = gtk_frame_new("Load channel list from:");
 	GtkWidget *txt_cl   = gtk_entry_new();
 	GtkWidget *hbox1    = gtk_hbox_new(TRUE, 2);
@@ -77,9 +76,7 @@ GtkWidget *new_conf_win(application *app)
 
 	// Tabs
 	GtkWidget *tab_lbl1 = gtk_label_new("General");
-	GtkWidget *tab_lbl2 = gtk_label_new("Sound and Video");
 	gtk_notebook_append_page(GTK_NOTEBOOK(tabpanel), vbox1, tab_lbl1);
-	//gtk_notebook_append_page(GTK_NOTEBOOK(tabpanel), vbox4, tab_lbl2);
 
 	// Channel
 	gtk_frame_set_shadow_type(GTK_FRAME(frame_ch), GTK_SHADOW_IN);
