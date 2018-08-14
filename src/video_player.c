@@ -380,12 +380,10 @@ static gboolean bus_player_callback(GstBus *bus, GstMessage *msg, gpointer data)
 
 		case GST_MESSAGE_ELEMENT:
 			/* Grab video to GtkWindow */
-			if( gst_structure_has_name(msg->structure, "prepare-xwindow-id") ) {
-
+			if ( gst_is_video_overlay_prepare_window_handle_message(msg) ) {
 				g_object_get(vplayer->player, "video-sink", &videosink, NULL);
 				gulong xid = gtk_socket_get_id(GTK_SOCKET(vplayer->socket));
-				gst_x_overlay_set_xwindow_id(GST_X_OVERLAY(videosink), xid);
-
+				gst_video_overlay_set_window_handle (GST_VIDEO_OVERLAY(GST_MESSAGE_SRC(msg)), xid);
 				g_object_unref(videosink);
 			}
 			break;

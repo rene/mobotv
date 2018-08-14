@@ -628,6 +628,8 @@ LIB@&t@OBJS
 EGREP
 GREP
 CPP
+GST_VIDEO_LIBS
+GST_VIDEO_CFLAGS
 GST_LIBS
 GST_CFLAGS
 LIBXML2_LIBS
@@ -743,6 +745,8 @@ GTK_CFLAGS
 GTK_LIBS
 GST_CFLAGS
 GST_LIBS
+GST_VIDEO_CFLAGS
+GST_VIDEO_LIBS
 CPP'
 
 
@@ -1388,6 +1392,10 @@ Some influential environment variables:
   GTK_LIBS    linker flags for GTK, overriding pkg-config
   GST_CFLAGS  C compiler flags for GST, overriding pkg-config
   GST_LIBS    linker flags for GST, overriding pkg-config
+  GST_VIDEO_CFLAGS 
+              C compiler flags for GST_VIDEO, overriding pkg-config
+  GST_VIDEO_LIBS 
+              linker flags for GST_VIDEO, overriding pkg-config
   CPP         C preprocessor
 
 Use these variables to override the choices made by `configure' or to help
@@ -4079,31 +4087,25 @@ LIBXML2_LIBS="`$XML2CONFIG --libs`"
 
 
 
-GST_VERSION_MAJOR=0
-GST_VERSION_MINOR=10
-GST_VERSION_RELEASE=0
-GSTREAMER_REQ=$GST_VERSION_MAJOR.$GST_VERSION_MINOR.$GST_VERSION_RELEASE
+GST_VERSION_MAJOR=1
+GST_VERSION_MINOR=0
+GSTREAMER_REQ=$GST_VERSION_MAJOR.$GST_VERSION_MINOR
 GST_MAJORMINOR=$GST_VERSION_MAJOR.$GST_VERSION_MINOR
 
 pkg_failed=no
-{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" >&5
-$as_echo_n "checking for gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ... " >&6; }
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ" >&5
+$as_echo_n "checking for gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ... " >&6; }
 
 if test -n "$GST_CFLAGS"; then
     pkg_cv_GST_CFLAGS="$GST_CFLAGS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gstreamer-\$GST_MAJORMINOR >= \$GSTREAMER_REQ
-					   gstreamer-interfaces-\$GST_MAJORMINOR >= \$GSTREAMER_REQ\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gstreamer-\$GST_MAJORMINOR >= \$GSTREAMER_REQ\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_GST_CFLAGS=`$PKG_CONFIG --cflags "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
+  pkg_cv_GST_CFLAGS=`$PKG_CONFIG --cflags "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes 
 else
   pkg_failed=yes
@@ -4115,15 +4117,12 @@ if test -n "$GST_LIBS"; then
     pkg_cv_GST_LIBS="$GST_LIBS"
  elif test -n "$PKG_CONFIG"; then
     if test -n "$PKG_CONFIG" && \
-    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gstreamer-\$GST_MAJORMINOR >= \$GSTREAMER_REQ
-					   gstreamer-interfaces-\$GST_MAJORMINOR >= \$GSTREAMER_REQ\""; } >&5
-  ($PKG_CONFIG --exists --print-errors "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ") 2>&5
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gstreamer-\$GST_MAJORMINOR >= \$GSTREAMER_REQ\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ") 2>&5
   ac_status=$?
   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
   test $ac_status = 0; }; then
-  pkg_cv_GST_LIBS=`$PKG_CONFIG --libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
+  pkg_cv_GST_LIBS=`$PKG_CONFIG --libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes 
 else
   pkg_failed=yes
@@ -4144,11 +4143,9 @@ else
         _pkg_short_errors_supported=no
 fi
         if test $_pkg_short_errors_supported = yes; then
-	        GST_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>&1`
+	        GST_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>&1`
         else
-	        GST_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>&1`
+	        GST_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>&1`
         fi
 	# Put the nasty error message in config.log where it belongs
 	echo "$GST_PKG_ERRORS" >&5
@@ -4166,6 +4163,82 @@ $as_echo "yes" >&6; }
 	
 fi
 
+
+
+
+pkg_failed=no
+{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for gstreamer-video-$GST_MAJORMINOR >= 1.0" >&5
+$as_echo_n "checking for gstreamer-video-$GST_MAJORMINOR >= 1.0... " >&6; }
+
+if test -n "$GST_VIDEO_CFLAGS"; then
+    pkg_cv_GST_VIDEO_CFLAGS="$GST_VIDEO_CFLAGS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gstreamer-video-\$GST_MAJORMINOR >= 1.0\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gstreamer-video-$GST_MAJORMINOR >= 1.0") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_GST_VIDEO_CFLAGS=`$PKG_CONFIG --cflags "gstreamer-video-$GST_MAJORMINOR >= 1.0" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes 
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+if test -n "$GST_VIDEO_LIBS"; then
+    pkg_cv_GST_VIDEO_LIBS="$GST_VIDEO_LIBS"
+ elif test -n "$PKG_CONFIG"; then
+    if test -n "$PKG_CONFIG" && \
+    { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"gstreamer-video-\$GST_MAJORMINOR >= 1.0\""; } >&5
+  ($PKG_CONFIG --exists --print-errors "gstreamer-video-$GST_MAJORMINOR >= 1.0") 2>&5
+  ac_status=$?
+  $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+  test $ac_status = 0; }; then
+  pkg_cv_GST_VIDEO_LIBS=`$PKG_CONFIG --libs "gstreamer-video-$GST_MAJORMINOR >= 1.0" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes 
+else
+  pkg_failed=yes
+fi
+ else
+    pkg_failed=untried
+fi
+
+
+
+if test $pkg_failed = yes; then
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+        
+if $PKG_CONFIG --atleast-pkgconfig-version 0.20; then
+        _pkg_short_errors_supported=yes
+else
+        _pkg_short_errors_supported=no
+fi
+        if test $_pkg_short_errors_supported = yes; then
+	        GST_VIDEO_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "gstreamer-video-$GST_MAJORMINOR >= 1.0" 2>&1`
+        else
+	        GST_VIDEO_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "gstreamer-video-$GST_MAJORMINOR >= 1.0" 2>&1`
+        fi
+	# Put the nasty error message in config.log where it belongs
+	echo "$GST_VIDEO_PKG_ERRORS" >&5
+
+	HAVE_GST_VIDEO="no"
+elif test $pkg_failed = untried; then
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: no" >&5
+$as_echo "no" >&6; }
+	HAVE_GST_VIDEO="no"
+else
+	GST_VIDEO_CFLAGS=$pkg_cv_GST_VIDEO_CFLAGS
+	GST_VIDEO_LIBS=$pkg_cv_GST_VIDEO_LIBS
+        { $as_echo "$as_me:${as_lineno-$LINENO}: result: yes" >&5
+$as_echo "yes" >&6; }
+	HAVE_GST_VIDEO="yes"
+fi
+if test "x$HAVE_GST_VIDEO" != "xyes"; then
+  as_fn_error $? "gst-video is required" "$LINENO" 5
+fi
 
 
 

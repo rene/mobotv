@@ -30,7 +30,7 @@
 
 	#include <gtk/gtk.h>
 	#include <gst/gst.h>
-	#include <gst/interfaces/xoverlay.h>
+	#include <gst/video/videooverlay.h>	
 	#include <glib/gprintf.h>
 	#include "channel.h"
 	#include "ui.h"

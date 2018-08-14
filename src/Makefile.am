@@ -21,8 +21,8 @@ mobotv_SOURCES  = main.c		 					\
 				  input_dialog.c input_dialog.h     \
 				  conffile.c conffile.h
 
-mobotv_LDADD    = $(GTK_LIBS) $(LIBXML2_LIBS) $(GST_LIBS)
+mobotv_LDADD    = $(GTK_LIBS) $(LIBXML2_LIBS) $(GST_LIBS) $(GST_VIDEO_LIBS)
 
-mobotv_CPPFLAGS = -Wall $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(GST_CFLAGS) \
+mobotv_CPPFLAGS = -Wall $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(GST_CFLAGS) $(GST_VIDEO_CFLAGS) \
 				  -DPIXMAPS_DIR=\""$(datadir)/pixmaps"\"
 

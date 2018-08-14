@@ -25,6 +25,7 @@
 
 #include <gtk/gtk.h>
 #include <gst/gst.h>
+#include <gdk/gdkkeysyms.h>
 #include "application.h"
 #include "video_ctrl.h"
 #include "video_player.h"
@@ -86,7 +87,9 @@ int main(int argc, char **argv)
 	GtkWidget *vbar_wg;
 	GtkWidget *chinfo_wg;
 
-	GtkMenu *menu;
+	GtkWidget *menu_bar;
+	GtkWidget *menu;
+	GtkWidget *root_menu;
 
 	GtkWidget *mnu_open;
 	GtkWidget *mnu_load_list;
@@ -165,7 +168,7 @@ int main(int argc, char **argv)
 	gtk_window_set_icon_from_file(GTK_WINDOW(main_win), MOBOTV_ICON, NULL);
 
 	// menu
-    menu = (GtkMenu*) gtk_menu_new();
+    menu = gtk_menu_new();
 
 	mnu_open       = new_img_menu_item("Open url...", MOBOTV_ICON_OPEN);
 	mnu_load_list  = gtk_menu_item_new_with_label("Load Channel's list from");
@@ -177,18 +180,18 @@ int main(int argc, char **argv)
 	mnu_about      = new_img_menu_item("About", MOBOTV_ICON_ABOUT);
 	mnu_quit       = new_img_menu_item("Quit", MOBOTV_ICON_QUIT);
 
-	/*gtk_widget_add_accelerator(mnu_open, "activate", accel_group,
+	gtk_widget_add_accelerator(mnu_open, "activate", accel_group,
 		      GDK_o, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 	gtk_widget_add_accelerator(mnu_prefs, "activate", accel_group,
 		      GDK_p, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 	gtk_widget_add_accelerator(mnu_quit, "activate", accel_group,
-		      GDK_q, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);*/
+		      GDK_q, GDK_CONTROL_MASK, GTK_ACCEL_VISIBLE);
 
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mnu_open);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), mnu_load_list);
-	 gtk_menu_item_set_submenu(GTK_MENU_ITEM(mnu_load_list), smnu_load_list);
-	 gtk_menu_shell_append(GTK_MENU_SHELL(smnu_load_list), smnu_url);
-	 gtk_menu_shell_append(GTK_MENU_SHELL(smnu_load_list), smnu_local);
+	gtk_menu_item_set_submenu(GTK_MENU_ITEM(mnu_load_list), smnu_load_list);
+	gtk_menu_shell_append(GTK_MENU_SHELL(smnu_load_list), smnu_url);
+	gtk_menu_shell_append(GTK_MENU_SHELL(smnu_load_list), smnu_local);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), mnu_mgt_ch);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), gtk_separator_menu_item_new());
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), mnu_prefs);
@@ -196,12 +199,25 @@ int main(int argc, char **argv)
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), mnu_about);
     gtk_menu_shell_append(GTK_MENU_SHELL(menu), mnu_quit);
 
+	menu_bar  = gtk_menu_bar_new();
+	root_menu = gtk_menu_item_new_with_label ("Menu");
+	gtk_menu_item_set_submenu (GTK_MENU_ITEM(root_menu), menu);
+	gtk_menu_bar_append(GTK_MENU_BAR(menu_bar), root_menu);
+
 	// main
 	vctrl_set_ibutton_widget(vbar, frame_inf);
 	gtk_frame_set_shadow_type(GTK_FRAME(frame_ch), GTK_SHADOW_ETCHED_IN);
 	gtk_container_add(GTK_CONTAINER(frame_ch), chview_wg);
 
-	gtk_container_add(GTK_CONTAINER(main_win), pane1);
+	GtkWidget *vb_mwin = gtk_vbox_new (FALSE, 0);
+	gtk_container_add(GTK_CONTAINER (main_win), vb_mwin);
+	gtk_box_pack_start(GTK_BOX(vb_mwin), menu_bar, FALSE, FALSE, 2);
+	gtk_box_pack_end(GTK_BOX(vb_mwin), pane1, TRUE, TRUE, 2);
+	gtk_widget_show(vb_mwin);
+	gtk_widget_show(menu_bar);
+	gtk_widget_show(menu);
+
+	//gtk_container_add(GTK_CONTAINER(main_win), pane1);
 	gtk_paned_pack1(GTK_PANED(pane1), frame_ch, TRUE, FALSE);
 	gtk_widget_set_size_request(frame_ch, 180, -1);
 	gtk_paned_pack2(GTK_PANED(pane1), pane2, TRUE, FALSE);

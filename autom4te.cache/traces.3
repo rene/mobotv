@@ -1065,37 +1065,45 @@ m4trace:configure.ac:52: -1- XML2TEST
 m4trace:configure.ac:52: -1- m4_pattern_allow([^SED$])
 m4trace:configure.ac:62: -1- m4_pattern_allow([^LIBXML2_CFLAGS$])
 m4trace:configure.ac:63: -1- m4_pattern_allow([^LIBXML2_LIBS$])
-m4trace:configure.ac:70: -1- PKG_CHECK_MODULES([GST], [gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ], [], [as_fn_error $? "gstreamer-$GST_MAJORMINOR not found. See http://gstreamer.freedesktop.org/" "$LINENO" 5])
-m4trace:configure.ac:70: -1- m4_pattern_allow([^GST_CFLAGS$])
-m4trace:configure.ac:70: -1- m4_pattern_allow([^GST_LIBS$])
-m4trace:configure.ac:70: -1- PKG_CHECK_EXISTS([gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ], [pkg_cv_[]GST_CFLAGS=`$PKG_CONFIG --[]cflags "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
+m4trace:configure.ac:69: -1- PKG_CHECK_MODULES([GST], [gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ], [], [as_fn_error $? "gstreamer-$GST_MAJORMINOR not found. See http://gstreamer.freedesktop.org/" "$LINENO" 5])
+m4trace:configure.ac:69: -1- m4_pattern_allow([^GST_CFLAGS$])
+m4trace:configure.ac:69: -1- m4_pattern_allow([^GST_LIBS$])
+m4trace:configure.ac:69: -1- PKG_CHECK_EXISTS([gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ], [pkg_cv_[]GST_CFLAGS=`$PKG_CONFIG --[]cflags "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:70: -1- PKG_CHECK_EXISTS([gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ], [pkg_cv_[]GST_LIBS=`$PKG_CONFIG --[]libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ
-					   gstreamer-interfaces-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
+m4trace:configure.ac:69: -1- PKG_CHECK_EXISTS([gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ], [pkg_cv_[]GST_LIBS=`$PKG_CONFIG --[]libs "gstreamer-$GST_MAJORMINOR >= $GSTREAMER_REQ" 2>/dev/null`
 		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
-m4trace:configure.ac:70: -1- _PKG_SHORT_ERRORS_SUPPORTED
-m4trace:configure.ac:73: -1- m4_pattern_allow([^GST_CFLAGS$])
-m4trace:configure.ac:74: -1- m4_pattern_allow([^GST_LIBS$])
-m4trace:configure.ac:78: -1- m4_pattern_allow([^CPP$])
-m4trace:configure.ac:78: -1- m4_pattern_allow([^CPPFLAGS$])
-m4trace:configure.ac:78: -1- m4_pattern_allow([^CPP$])
-m4trace:configure.ac:78: -1- m4_pattern_allow([^GREP$])
-m4trace:configure.ac:78: -1- m4_pattern_allow([^EGREP$])
-m4trace:configure.ac:78: -1- m4_pattern_allow([^STDC_HEADERS$])
-m4trace:configure.ac:78: -1- m4_pattern_allow([^HAVE_DIRENT_H$])
-m4trace:configure.ac:87: -1- m4_pattern_allow([^LIB@&t@OBJS$])
-m4trace:configure.ac:87: -1- m4_pattern_allow([^LTLIBOBJS$])
-m4trace:configure.ac:87: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
-m4trace:configure.ac:87: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
-m4trace:configure.ac:87: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
-m4trace:configure.ac:87: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
-m4trace:configure.ac:87: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
-m4trace:configure.ac:87: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
-m4trace:configure.ac:87: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
-m4trace:configure.ac:87: -1- AM_RUN_LOG([cd "$am_dirpart" \
+m4trace:configure.ac:69: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:71: -1- m4_pattern_allow([^GST_CFLAGS$])
+m4trace:configure.ac:72: -1- m4_pattern_allow([^GST_LIBS$])
+m4trace:configure.ac:74: -1- PKG_CHECK_MODULES([GST_VIDEO], [gstreamer-video-$GST_MAJORMINOR >= 1.0], [HAVE_GST_VIDEO="yes"], [HAVE_GST_VIDEO="no"])
+m4trace:configure.ac:74: -1- m4_pattern_allow([^GST_VIDEO_CFLAGS$])
+m4trace:configure.ac:74: -1- m4_pattern_allow([^GST_VIDEO_LIBS$])
+m4trace:configure.ac:74: -1- PKG_CHECK_EXISTS([gstreamer-video-$GST_MAJORMINOR >= 1.0], [pkg_cv_[]GST_VIDEO_CFLAGS=`$PKG_CONFIG --[]cflags "gstreamer-video-$GST_MAJORMINOR >= 1.0" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:74: -1- PKG_CHECK_EXISTS([gstreamer-video-$GST_MAJORMINOR >= 1.0], [pkg_cv_[]GST_VIDEO_LIBS=`$PKG_CONFIG --[]libs "gstreamer-video-$GST_MAJORMINOR >= 1.0" 2>/dev/null`
+		      test "x$?" != "x0" && pkg_failed=yes ], [pkg_failed=yes])
+m4trace:configure.ac:74: -1- _PKG_SHORT_ERRORS_SUPPORTED
+m4trace:configure.ac:76: -1- _m4_warn([obsolete], [The macro `AC_ERROR' is obsolete.
+You should run autoupdate.], [../../lib/autoconf/oldnames.m4:34: AC_ERROR is expanded from...
+configure.ac:76: the top level])
+m4trace:configure.ac:78: -1- m4_pattern_allow([^GST_VIDEO_LIBS$])
+m4trace:configure.ac:79: -1- m4_pattern_allow([^GST_VIDEO_CFLAGS$])
+m4trace:configure.ac:82: -1- m4_pattern_allow([^CPP$])
+m4trace:configure.ac:82: -1- m4_pattern_allow([^CPPFLAGS$])
+m4trace:configure.ac:82: -1- m4_pattern_allow([^CPP$])
+m4trace:configure.ac:82: -1- m4_pattern_allow([^GREP$])
+m4trace:configure.ac:82: -1- m4_pattern_allow([^EGREP$])
+m4trace:configure.ac:82: -1- m4_pattern_allow([^STDC_HEADERS$])
+m4trace:configure.ac:82: -1- m4_pattern_allow([^HAVE_DIRENT_H$])
+m4trace:configure.ac:91: -1- m4_pattern_allow([^LIB@&t@OBJS$])
+m4trace:configure.ac:91: -1- m4_pattern_allow([^LTLIBOBJS$])
+m4trace:configure.ac:91: -1- AM_CONDITIONAL([am__EXEEXT], [test -n "$EXEEXT"])
+m4trace:configure.ac:91: -1- m4_pattern_allow([^am__EXEEXT_TRUE$])
+m4trace:configure.ac:91: -1- m4_pattern_allow([^am__EXEEXT_FALSE$])
+m4trace:configure.ac:91: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_TRUE])
+m4trace:configure.ac:91: -1- _AM_SUBST_NOTMAKE([am__EXEEXT_FALSE])
+m4trace:configure.ac:91: -1- _AC_AM_CONFIG_HEADER_HOOK(["$ac_file"])
+m4trace:configure.ac:91: -1- _AM_OUTPUT_DEPENDENCY_COMMANDS
+m4trace:configure.ac:91: -1- AM_RUN_LOG([cd "$am_dirpart" \
       && sed -e '/# am--include-marker/d' "$am_filepart" \
         | $MAKE -f - am--depfiles])

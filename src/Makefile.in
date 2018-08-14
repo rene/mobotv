@@ -114,7 +114,7 @@ am_mobotv_OBJECTS = mobotv-main.$(OBJEXT) mobotv-application.$(OBJEXT) \
 mobotv_OBJECTS = $(am_mobotv_OBJECTS)
 am__DEPENDENCIES_1 =
 mobotv_DEPENDENCIES = $(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1) \
-	$(am__DEPENDENCIES_1)
+	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -208,6 +208,8 @@ EXEEXT = @EXEEXT@
 GREP = @GREP@
 GST_CFLAGS = @GST_CFLAGS@
 GST_LIBS = @GST_LIBS@
+GST_VIDEO_CFLAGS = @GST_VIDEO_CFLAGS@
+GST_VIDEO_LIBS = @GST_VIDEO_LIBS@
 GTK_CFLAGS = @GTK_CFLAGS@
 GTK_LIBS = @GTK_LIBS@
 HAVE_PKGCONFIG = @HAVE_PKGCONFIG@
@@ -299,8 +301,8 @@ mobotv_SOURCES = main.c		 					\
 				  input_dialog.c input_dialog.h     \
 				  conffile.c conffile.h
 
-mobotv_LDADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GST_LIBS)
-mobotv_CPPFLAGS = -Wall $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(GST_CFLAGS) \
+mobotv_LDADD = $(GTK_LIBS) $(LIBXML2_LIBS) $(GST_LIBS) $(GST_VIDEO_LIBS)
+mobotv_CPPFLAGS = -Wall $(GTK_CFLAGS) $(LIBXML2_CFLAGS) $(GST_CFLAGS) $(GST_VIDEO_CFLAGS) \
 				  -DPIXMAPS_DIR=\""$(datadir)/pixmaps"\"
 
 all: all-am
